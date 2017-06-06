@@ -1,7 +1,7 @@
 (require 'package) ;; You might already have this line
 
 (add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+	     '("melpa" . "https://melpa.org/packages/"))
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
@@ -25,7 +25,7 @@
  '(initial-buffer-choice (quote remember-notes))
  '(package-selected-packages
    (quote
-    (paredit rainbow-delimiters which-key company cider))))
+    (cider paredit rainbow-delimiters which-key company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
