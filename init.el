@@ -25,20 +25,10 @@
  '(initial-buffer-choice (quote remember-notes))
  '(package-selected-packages
    (quote
-    (cider paredit rainbow-delimiters which-key company))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(rainbow-delimiters-depth-1-face ((t (:foreground "gray"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "orange"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "spring green"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "indian red"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "RoyalBlue2"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "gainsboro"))))
- '(rainbow-delimiters-depth-7-face ((t (:foreground "saddle brown"))))
- '(rainbow-delimiters-depth-8-face ((t (:foreground "cyan")))))
+    (evil neotree cider paredit rainbow-delimiters which-key company))))
+
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
 
 (add-to-list 'exec-path "~/.bin")
 (windmove-default-keybindings 'meta)
@@ -46,3 +36,10 @@
 (add-hook 'cider-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'cider-mode-hook #'paredit-mode)
 (add-hook 'cider-mode-hook #'aggressive-indent-mode)
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
