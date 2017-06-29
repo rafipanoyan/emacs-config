@@ -32,6 +32,9 @@
  '(shell-pop-universal-key "²"))
 
 (require 'shell-pop)
+; Fix shell layout break since emacs25
+(push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
+
 
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
