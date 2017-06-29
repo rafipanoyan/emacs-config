@@ -17,7 +17,10 @@
    ["#2d3743" "#ff4242" "#74af68" "#dbdb95" "#34cae2" "#008b8b" "#00ede1" "#e1e1e0"])
  '(company-auto-complete t)
  '(company-minimum-prefix-length 1)
- '(custom-enabled-themes (quote (adwaita)))
+ '(custom-enabled-themes (quote (tango-dark)))
+ '(custom-safe-themes
+   (quote
+    ("c616e584f7268aa3b63d08045a912b50863a34e7ea83e35fcab8537b75741956" default)))
  '(inhibit-default-init t)
  '(inhibit-startup-buffer-menu t)
  '(inhibit-startup-echo-area-message "")
@@ -25,10 +28,31 @@
  '(initial-buffer-choice (quote remember-notes))
  '(package-selected-packages
    (quote
-    (evil neotree cider paredit rainbow-delimiters which-key company))))
+    (shell-pop airline-themes powerline linum-relative evil-paredit evil neotree cider paredit rainbow-delimiters which-key company)))
+ '(shell-pop-universal-key "²"))
+
+(require 'shell-pop)
 
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
+
+(require 'linum-relative)
+(global-linum-mode 1)
+(linum-relative-mode 1)
+(setq linum-relative-current-symbol "=")
+
+(require 'evil)
+(evil-mode 1)
+
+(require 'powerline)
+(powerline-default-theme)
+
+(require 'airline-themes)
+(load-theme 'airline-kolor)
+
+(evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
+(evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
+(evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
 
 (add-to-list 'exec-path "~/.bin")
 (windmove-default-keybindings 'meta)
