@@ -28,7 +28,7 @@
  '(initial-buffer-choice (quote remember-notes))
  '(package-selected-packages
    (quote
-    (shell-pop airline-themes powerline linum-relative evil-paredit evil neotree cider paredit rainbow-delimiters which-key company)))
+    (evil-smartparens smartparens magit shell-pop airline-themes powerline linum-relative evil-paredit evil neotree cider rainbow-delimiters which-key company)))
  '(shell-pop-universal-key "²"))
 
 (require 'shell-pop)
@@ -53,6 +53,8 @@
 (require 'airline-themes)
 (load-theme 'airline-kolor)
 
+(require 'smartparens-config)
+
 (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
 (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
 (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
@@ -60,9 +62,8 @@
 (add-to-list 'exec-path "~/.bin")
 (windmove-default-keybindings 'meta)
 (add-hook 'after-init-hook 'global-company-mode)
-(add-hook 'cider-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'cider-mode-hook #'paredit-mode)
-(add-hook 'cider-mode-hook #'aggressive-indent-mode)
+(add-hook 'cider-mode-hook #'smartparens-strict-mode)
+(add-hook 'smartparens-strict-mode-hook #'evil-smartparens-mode)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
