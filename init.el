@@ -28,13 +28,14 @@
  '(initial-buffer-choice (quote remember-notes))
  '(package-selected-packages
    (quote
-    (evil-smartparens smartparens magit shell-pop airline-themes powerline linum-relative evil-paredit evil neotree cider rainbow-delimiters which-key company)))
+    (paredit magit shell-pop airline-themes powerline linum-relative evil-paredit evil neotree cider rainbow-delimiters which-key company)))
  '(shell-pop-universal-key "²"))
 
 (require 'shell-pop)
 ; Fix shell layout break since emacs25
 (push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
 
+(show-paren-mode 1)
 
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
@@ -53,8 +54,6 @@
 (require 'airline-themes)
 (load-theme 'airline-kolor)
 
-(require 'smartparens-config)
-
 (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
 (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
 (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
@@ -62,8 +61,10 @@
 (add-to-list 'exec-path "~/.bin")
 (windmove-default-keybindings 'meta)
 (add-hook 'after-init-hook 'global-company-mode)
-(add-hook 'cider-mode-hook #'smartparens-strict-mode)
-(add-hook 'smartparens-strict-mode-hook #'evil-smartparens-mode)
+(add-hook 'cider-mode-hook #'rainbow-delimiter-mode)
+(add-hook 'cider-mode-hook #'paredit-mode)
+(add-hook 'cider-mode-hook 'evil-paredit-mode)
+(add-hook 'cider-mode-hook #'aggressive-indent-mode)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
