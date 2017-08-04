@@ -28,8 +28,10 @@
  '(initial-buffer-choice (quote remember-notes))
  '(package-selected-packages
    (quote
-    (paredit magit shell-pop airline-themes powerline linum-relative evil-paredit evil neotree cider rainbow-delimiters which-key company)))
+    (helm aggressive-indent ace-jump-mode paredit magit shell-pop airline-themes powerline neotree cider which-key company)))
  '(shell-pop-universal-key "²"))
+
+(require 'helm)
 
 (require 'shell-pop)
 ; Fix shell layout break since emacs25
@@ -40,13 +42,7 @@
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
 
-(require 'linum-relative)
 (global-linum-mode 1)
-(linum-relative-mode 1)
-(setq linum-relative-current-symbol "=")
-
-(require 'evil)
-(evil-mode 1)
 
 (require 'powerline)
 (powerline-default-theme)
@@ -54,16 +50,17 @@
 (require 'airline-themes)
 (load-theme 'airline-kolor)
 
-(evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
-(evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
-(evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
+(autoload
+  'ace-jump-mode
+  "ace-jump-mode"
+  "Emacs quick move minor mode"
+  t)
+(define-key global-map (kbd "C-c C-SPC") 'ace-jump-mode)
 
 (add-to-list 'exec-path "~/.bin")
 (windmove-default-keybindings 'meta)
 (add-hook 'after-init-hook 'global-company-mode)
-(add-hook 'cider-mode-hook #'rainbow-delimiter-mode)
 (add-hook 'cider-mode-hook #'paredit-mode)
-(add-hook 'cider-mode-hook 'evil-paredit-mode)
 (add-hook 'cider-mode-hook #'aggressive-indent-mode)
 
 (custom-set-faces
