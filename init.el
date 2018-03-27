@@ -28,7 +28,7 @@
  '(initial-buffer-choice (quote remember-notes))
  '(package-selected-packages
    (quote
-    (helm aggressive-indent ace-jump-mode paredit magit shell-pop airline-themes powerline neotree cider which-key company)))
+    (helm aggressive-indent ace-jump-mode magit shell-pop cider which-key company)))
  '(shell-pop-universal-key "²"))
 
 (require 'helm)
@@ -39,16 +39,7 @@
 
 (show-paren-mode 1)
 
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
-
 (global-linum-mode 1)
-
-(require 'powerline)
-(powerline-default-theme)
-
-(require 'airline-themes)
-(load-theme 'airline-kolor)
 
 (autoload
   'ace-jump-mode
