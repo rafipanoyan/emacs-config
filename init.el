@@ -1,16 +1,5 @@
-;;;* Autoloads
 (defconst user-emacs-directory-lisp (expand-file-name "lisp" user-emacs-directory)
   "My Emacs configuration location.")
-
-(defun cr-update-autoloads ()
-  "Update autoload functions and register them into a loaddefs file."
-  (interactive)
-  (cd user-emacs-directory-lisp)
-  (let ((generated-autoload-file (expand-file-name "loaddefs.el" user-emacs-directory-lisp)))
-    (mapcar #'update-directory-autoloads '("." "libs" "modules")))
-  (message "Autoloads has been generated."))
-
-(add-hook 'kill-emacs-hook #'cr-update-autoloads)
 
 ;;;* Core
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
