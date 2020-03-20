@@ -12,6 +12,8 @@
 (require 'hooks)
 
 ;;;* Global modes
+(load-theme 'doom-solarized-light t)
+
 (blink-cursor-mode -1)
 (global-auto-revert-mode 1)
 (show-paren-mode 1)

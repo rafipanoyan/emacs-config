@@ -10,7 +10,8 @@
                           counsel
                           counsel-tramp
                           doom-themes
-                          magit))
+                          magit
+                          magit-gitflow))
 
 (defun cr-install-packages ()
   "Install all required packages."
