@@ -14,6 +14,8 @@
 ;;;* Global modes
 (load-theme 'doom-solarized-light t)
 
+(global-set-key (kbd "C-x g") 'magit-status)
+
 (blink-cursor-mode -1)
 (global-auto-revert-mode 1)
 (show-paren-mode 1)
