@@ -12,7 +12,7 @@
 (require 'hooks)
 
 ;;;* Global modes
-(load-theme 'doom-solarized-light t)
+(load-theme 'doom-monokai-pro t)
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
