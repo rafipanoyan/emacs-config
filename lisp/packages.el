@@ -23,7 +23,6 @@
       (message (format "Installing %s..." package))
       (package-install package))))
 
-(package-initialize)
 (cr-install-packages)
 
 (provide 'packages)
